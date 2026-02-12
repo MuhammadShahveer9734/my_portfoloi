@@ -43,26 +43,25 @@ import { TbTerminal2 } from "react-icons/tb";
 const CONTACT_LINKS = [
   {
     name: "Email",
-    content: "abhijitzende75@gmail",
-    href: "mailto:abhijitzende75@gmail.com",
+    content: "shahveersiddiqui80@gmail",
     icon: <FaEnvelope height={"50px"} />,
   },
   {
     name: "Phone",
-    content: "1234567890",
-    href: "tel:8308509180",
+    content: "03180119734",
+    href: "03180119734",
     icon: <FaPhone height={"50px"} />,
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/zende-abhijit/",
-    content: "/zende-abhijit",
+    href: "https://www.linkedin.com/in/shahveer-siddiqui-a4b5312b5/",
+    content: "/shahveer-siddiqui-a4b5312b5/",
     icon: <FaLinkedin height={"50px"} />,
   },
   {
     name: "GitHub",
-    href: "https://github.com/Abhiz2411",
-    content: "/naresh-khatri",
+    href: "https://github.com/MuhammadShahveer9734/",
+    content: "/MuhammadShahveer9734/",
     icon: <FaGithub height={"50px"} />,
   },
 ];
@@ -161,7 +160,7 @@ const TOOLS = [
   {
     name: "GitHub",
     content: "Next.js is a React framework for production",
-    icon: <FaGithub size={"50px"} color="#fff" />,
+    icon: <FaGithub size={50} color="#fff" />, 
     color: "#000000",
   },
   {
@@ -251,7 +250,7 @@ function Page() {
                 />
               </div>
               <div className="flex flex-col gap-3 lg:items-center ml-10 md:ml-20 lg:ml-0">
-                <p className="text-center text-xl">Naresh Khatri</p>
+                <p className="text-center text-xl">Muhammad Shahveer</p>
                 <div className="text-xs bg-zinc-700 w-fit px-3 py-1 rounded-full">
                   Web Developer
                 </div>
@@ -287,15 +286,13 @@ function Page() {
           >
             <h1 className="text-3xl mb-10 lg:md-20">About me</h1>
             <p className="mb-10 text-roboto">
-              Hey there! I&apos;m Abhijit, a Comp. Sci. Engineer with 1.5 year experience in Devlopment, DevOps and 
+              Hey there! I&apos;m Shahveer, a Data Scientist , Web Engineer with 4 year experience in Devlopment,  
               Database management with hands-on experience in deploying & automating workflows, and 
               collaborating with foreign clients. Strong analytical skills,effective communication,
               and a team-oriented approach to driving process improvements and delivering results.
             </p>
             <p className="mb-10">
-              When I&apos;m not coding, you can find me [Your
-              Interests/Hobbies], exploring new technologies, or sipping coffee
-              while brainstorming my next project.
+             When I&apos;m not immersed in code, I spend time learning about the medical field, exploring the latest tech trends, and letting ideas flow over a steaming cup of coffee
             </p>
             <h1 className="text-3xl mb-10 lg:md-20">Stuff I use</h1>
             <div className="mb-5">

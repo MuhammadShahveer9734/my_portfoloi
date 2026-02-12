@@ -23,7 +23,7 @@ function Footer() {
               href={href}
               key={`l_${index}`}
             >
-              <Button variant={"link"}>{title}</Button>
+              {/* <Button variant={"link"}>{title}</Button> */}
             </Link>
           );
         })}

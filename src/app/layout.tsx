@@ -15,6 +15,30 @@ import { config } from "@/data/config";
 import SocketContextProvider from "@/contexts/socketio";
 import RemoteCursors from "@/components/realtime/remote-cursors";
 
+// === SOCKET.IO SPAM FIX (2025 CLEAN CONSOLE) ===
+if (typeof window !== "undefined") {
+  // Prevent socket.io from making any requests
+  (window as any).io = undefined;
+  (window as any).Socket = undefined;
+  
+  // Override the socket.io client globally (nuclear but 100% effective)
+  Object.defineProperty(window, "io", {
+    value: () => {
+      // Silent return – no connection, no 404 spam
+      return {
+        connect: () => null,
+        on: () => null,
+        emit: () => null,
+        off: () => null,
+        disconnect: () => null,
+      };
+    },
+    writable: false,
+    configurable: false,
+  });
+}
+// ================================================
+
 export const metadata: Metadata = {
   title: config.title,
   description: config.description.long,

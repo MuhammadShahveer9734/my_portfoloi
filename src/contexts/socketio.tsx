@@ -53,10 +53,27 @@ const SocketContextProvider = ({ children }: { children: ReactNode }) => {
 
   // SETUP SOCKET.IO
   useEffect(() => {
-    const username =  localStorage.getItem("username") || generateRandomCursor().name
-    const socket = io(process.env.NEXT_PUBLIC_WS_URL!, {
-      query: { username },
-    });
+    const username = localStorage.getItem("username") || generateRandomCursor().name;
+    const wsUrl = process.env.NEXT_PUBLIC_WS_URL ?? "/api/socketio";
+
+    // If the wsUrl is a relative path (starts with '/'), we need to tell
+    // socket.io-client to use it as the `path` option instead of as the URL
+    // (otherwise the client appends the default `/socket.io` segment and
+    // ends up requesting `/api/socketio/socket.io` which doesn't match the
+    // server). For absolute URLs we can pass it as the first arg.
+    let socket;
+    if (wsUrl.startsWith("/")) {
+      // pass an empty string for the URL (connect to current origin)
+      // TypeScript doesn't accept `undefined` here, so use "" instead.
+      socket = io("", {
+        path: wsUrl,
+        query: { username },
+      });
+    } else {
+      socket = io(wsUrl, {
+        query: { username },
+      });
+    }
     setSocket(socket);
     socket.on("connect", () => {});
     socket.on("msgs-receive-init", (msgs) => {
